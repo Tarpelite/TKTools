@@ -30,12 +30,13 @@ if not os.path.exists(output_dir):
 
 def tokenize(idx):
     # idx, data = idx
-    if idx+ piece_size > len(data):
+    if idx + piece_size > len(data):
         lim = len(data)
     else:
         lim = idx + piece_size
     results = []
     for i in range(idx, lim):
+        print(data[i])
         results.append([tokenizer.tokenize(x) for x in data[i]])
     return results
 
