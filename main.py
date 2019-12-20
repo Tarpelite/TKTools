@@ -36,7 +36,7 @@ def tokenize(idx):
         lim = idx + piece_size
     results = []
     for i in range(idx, lim):
-        print(data[i])
+        # print(data[i])
         results.append([tokenizer.tokenize(x) for x in data[i]])
     return results
 
