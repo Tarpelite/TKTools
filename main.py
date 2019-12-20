@@ -37,7 +37,7 @@ def tokenize(idx):
     results = []
     for i in range(idx, lim):
         # print(data[i])
-        results.append([[tokenizer.tokenize(t) for t in x ] for x in data[i]])
+        results.append([tokenizer.tokenize(x) for x in data[i]])
     return results
 
 def write(data, cnt):
@@ -82,7 +82,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
     parser.add_argument("--piece_size", type=int, default=10)
-    parser.add_argument("--max_mem", type=int, default=1)
+    parser.add_argument("--max_mem", type=float, default=1.0)
     parser.add_argument("--data_dir", type=str,default="")
     args = parser.parse_args()
     piece_size = args.piece_size
