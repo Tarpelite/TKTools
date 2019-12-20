@@ -45,12 +45,15 @@ def write(data, cnt):
     print("write exapmles to {}".format(dst))
     with open(dst, "w+", encoding="utf-8") as dst_f:
         for line in data:
-            print(line)
-            line_a = " ".join(line[0]) + "\n"
-            line_b = " ".join(line[1]) + "\n"
-            dst_f.write(line_a)
-            dst_f.write(line_b)
-            dst_f.write("\n")
+            try:
+                line_a = " ".join(line[0]) + "\n"
+                line_b = " ".join(line[1]) + "\n"
+                dst_f.write(line_a)
+                dst_f.write(line_b)
+                dst_f.write("\n")
+            except Exception as e:
+                print(line)
+                continue
 
 def process(data, tokenizer):
     id_list = []
