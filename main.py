@@ -37,7 +37,10 @@ def tokenize(idx):
     results = []
     for i in range(idx, lim):
         # print(data[i])
-        assert len(data[i]) == 2
+        try:
+            assert len(data[i]) == 2
+        except Exception as e:
+            continue
         results.append([tokenizer.tokenize(x) for x in data[i]])
     return results
 
