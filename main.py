@@ -13,7 +13,7 @@ import time
 num_cpus = psutil.cpu_count(logical=False)
 
 
-tokenizer = BertTokenizer.from_pretrained("bert-base-cased")
+tokenizer = BertTokenizer.from_pretrained("bert-base-uncased")
 
 output_dir = ("tk_pieces")
 
