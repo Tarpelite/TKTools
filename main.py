@@ -81,13 +81,15 @@ if __name__ == "__main__":
 
     parser.add_argument("--piece_size", type=int, default=10)
     parser.add_argument("--max_mem", type=int, default=1)
-
+    parser.add_argument("--data_dir", type=str,default="")
     args = parser.parse_args()
     piece_size = args.piece_size
 
     max_mem = args.max_mem*1024*1024
-    file_path = "2019-10-25_AllMatchType_AllTime_ClicksBigger0_ExceptQEqualK_Normalized_DocLengthBigger10.txt"
-    file_iterator = fileinput.input(file_path)
+    data_dir = args.data_dir
+    file_list = set([os.path.join(data_dir, x) for x in os.listdir(data_dir)])
+
+    file_iterator = fileinput.input(files = file_list)
     global_mem = 0
     mem_cnt = 0
     data = []
